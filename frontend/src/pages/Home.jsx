@@ -3,25 +3,25 @@ import axios from 'axios'
 import spinner from '../components/spinner'
 import { Link } from 'react-router-dom'
 import { AiOutlineEdit, AiOutlineLink } from 'react-icons/ai'
-import {BsInfoCircle} from 'react-icons/bs'
-import {MdOutlineAddBox, MdOutlineDelete} from 'react-icons/md'
+import { BsInfoCircle } from 'react-icons/bs'
+import { MdOutlineAddBox, MdOutlineDelete } from 'react-icons/md'
 
 const Home = () => {
   const [books, setBooks] = useState([])
   const [loading, setLoading] = useState(false)
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
     axios
       .get('http://localhost:5555/books')
       .then((response) => {
-        setBooks(response.data.data)
-        setLoading(false)
+        setBooks(response.data.data);
+        setLoading(false);
       })
       .catch((error) => {
-        console.log(error)
-        setLoading(false)
-      })
-  }, [])
+        console.log(error);
+        setLoading(false);
+      });
+  }, []);
   return (
     <div className='p-4'>
       <div className='flex justify-between items-center'>
@@ -31,7 +31,7 @@ const Home = () => {
         </Link>
       </div>
       {loading ? (
-        <Spinner />
+        <spinner />
       ) : (
         <table className='w-full border-separate border-spacing-2'>
           <thead>
@@ -45,7 +45,7 @@ const Home = () => {
           </thead>
           <tbody>
             {books.map((book, index) => (
-              <tr key={book._id} className='h-8'>
+              <tr key = {book._id}className='h-8'>
                 <td className='border border-slate-700 rounded-md text-center'>
                   {index + 1}
                 </td>
@@ -77,7 +77,6 @@ const Home = () => {
         </table>
       )}
     </div>
-
   )
 }
 
