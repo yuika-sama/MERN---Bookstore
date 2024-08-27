@@ -6,6 +6,8 @@ import booksRoute from './route/bookRoutes.js'
 import cors from 'cors'
 
 const app = express()
+app.use(express.json())
+app.use(cors())
 app.get('/', (request, response) => {
     console.log(request)
     return response.status(234).send('Welcome to MERN stack tutorial')
@@ -15,7 +17,7 @@ app.get('/', (request, response) => {
 //     methods: ['GET', 'PUT', 'POST', 'DELETE'],
 //     allowedHeaders: ['Content-Type']
 // }))
-app.use(express.json())
+
 app.use('/books', booksRoute);
 mongoose
     .connect(mongodbURL)
