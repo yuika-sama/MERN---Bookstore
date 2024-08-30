@@ -12,6 +12,7 @@ app.get('/', (request, response) => {
     console.log(request)
     return response.status(234).send('Welcome to MERN stack tutorial')
 })
+
 // app.use(cors({
 //     origin: 'http://localhost:5555/',
 //     methods: ['GET', 'PUT', 'POST', 'DELETE'],
