@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import DeleteBook from './pages/DeleteBook.jsx'
 import EditBook from './pages/EditBook.jsx'
-import CreateBook from './pages/CreateBook.jsx'
+import CreateBook from './pages/CreateBook'
 import ShowBook from './pages/showBook.jsx'
 
 const App = () => {
