@@ -30,7 +30,7 @@ router.get('/', async (request, response) => {
         return response.status(200).json({
             count: books.length,
             data: books
-        })
+        }), console.log("Got all books from db")
     } catch (error) {
         console.log(error.message)
         return response.status(500).send({ message: error.message })
@@ -40,7 +40,7 @@ router.get('/:id', async (request, response) => {
     try {
         const { id } = request.params
         const book = await Book.findById(id)
-        return response.status(200).json(book)
+        return response.status(200).json(book), console.log("Got a book from db")
     } catch (error) {
         console.log(error.message)
         return response.status(500).send({ message: error.message })
@@ -60,7 +60,7 @@ router.put('/:id', async (request, response) => {
         if (!result) {
             return response.status(400).send({ message: 'Book not found' })
         }
-        return response.status(200).send({ message: ' Book updated successfully' })
+        return response.status(200).send({ message: ' Book updated successfully' }), console.log("Updated a book")
     } catch (error) {
         console.log(error.message)
         return response.status(500).send({ message: error.message })
@@ -73,10 +73,10 @@ router.delete('/:id', async (request, response) => {
         if (!result) {
             return response.status(400).send({ message: 'Book not found' })
         }
-        return response.status(200).send({ message: ' Book deleted successfully' })
+        return response.status(200).send({ message: ' Book deleted successfully' }), console.log("Deleted a book")
     } catch (error) {
         console.log(error.message)
-        return response.status(500).send({ message: error.message })
+        return response.status(500).send({ message: error.message }), console.log(error)
     }
 })
 
