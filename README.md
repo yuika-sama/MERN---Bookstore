@@ -1,3 +1,5 @@
+This is a very simple application of using MERN tech stack for making a bookstore management
+
 How to run?
 
 1. Create a terminal and then
